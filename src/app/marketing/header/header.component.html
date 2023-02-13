@@ -1,0 +1,49 @@
+<header [class]="headerClass">
+    <a routerLink="">
+        <img [class]="logoClass" src="./assets/images/sample_icon_non_transparent.png" alt="the company logotype">
+    </a>
+
+    <nav [class]="navBarClass">
+        <menu>
+            <li>
+                <a routerLink="/platforms">PLATFORMS</a>
+            </li>
+            <li>
+                <a routerLink="/pricing">PRICING</a>
+            </li>
+            <li>
+                <a routerLink="/about">ABOUT</a>
+            </li>
+            <li>
+                <a routerLink="/contact-us">CONTACT US</a>
+            </li>
+        </menu>
+    </nav>
+
+    <div class="placeholder mobile"></div>
+    <!--don't beat me. just in order for everything to work how I have intented without breaking everything apart!! go to style-->
+
+    <a class="signin" routerLink="/sign-in">
+        Sign In
+    </a>
+    <a class="signup mobile" routerLink="/sign-up">
+        Sign Up
+    </a>
+
+    <a class="signup desktop" routerLink="/sign-up">
+        Create a new Account
+    </a>
+
+    <div class="buttons">
+        <div class="menu-arrow" (click)="closeMenu()" [style.display]="menuArrowDisplay">
+            <div class="side1"></div>
+            <div class="side2"></div>
+        </div>
+
+        <div class="menu-btn" (click)="openMenu()" [style.display]="menuBtnDisplay">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</header>
