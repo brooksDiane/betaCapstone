@@ -1339,10 +1339,11 @@ footer .container {
   flex-flow: column nowrap;
   align-items: center;
   margin-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .logo-section img {
-  height: 90px;
+  height: 50px;
   width: 195px;
   object-fit: cover;
 }
@@ -1352,6 +1353,10 @@ footer .container {
   font-weight: bold;
   color: rgb(19, 19, 19);
   margin-bottom: 0.2rem;
+}
+
+.logo-section .description {
+  text-align: center;
 }
 
 .links-section p {
