@@ -70,8 +70,9 @@ app-root {
 /* || Header */
 
 /* don't ask, need app-header to be sticky since its gets scrolled. left header.position:sticky here too in case selectors get removed in the end*/
+/* no idea what she's talking about, much later. now I need to remove the app-header.position=sticky, cus it caused the header to scroll, lol */
 app-header {
-  position: sticky;
+  /* position: sticky; */
   z-index: 1;
   top: 0;
 }
@@ -382,11 +383,11 @@ main {
   box-shadow: 0 0 9px 5px #00000005;
   padding: 5rem 1rem;
 }
-
+/* 
 .to-fix-the-scroll-bug {
   height: 100%;
-  /* I'm so sorry to introduce this shit, but there's a bug, header behaves weirdly on a page that lacks an element with 100% height. this way I can add without fixing it and messing with the views. sorry */
-}
+  /* I'm so sorry to introduce this shit, but there's a bug, header behaves weirdly on a page that lacks an element with 100% height. this way I can add without fixing it and messing with the views. sorry 
+} */
 
 .scroll-to-top {
   background: url(./assets/images/arrow_up.webp) white;
@@ -1353,6 +1354,7 @@ footer .container {
   font-weight: bold;
   color: rgb(19, 19, 19);
   margin-bottom: 0.2rem;
+  text-align: center;
 }
 
 .logo-section .description {
