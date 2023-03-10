@@ -2,10 +2,13 @@ import { Component, NgModule } from '@angular/core';
 import { RouterLink, RouterModule, Routes } from '@angular/router';
 
 import { LibraryComponent } from './library/library.component';
-import { MarketingComponent } from './marketing/marketing.component';
 
 const routes: Routes = [
-  { path: '', component: MarketingComponent },
+  // {
+  //   // path: '',
+  //   // component: MarketingComponent,
+  //   // children: [{ path: 'pricing', component: PricingComponent }],
+  // },
   { path: 'lib', component: LibraryComponent },
 ];
 

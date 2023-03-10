@@ -14,6 +14,7 @@ import { PlatformsComponent } from './platforms/platforms.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { FieldService } from './field.service';
 
 @NgModule({
   declarations: [
@@ -29,5 +30,6 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SignUpComponent,
   ],
   imports: [CommonModule, MarketingRoutingModule],
+  providers: [FieldService],
 })
 export class MarketingModule {}
