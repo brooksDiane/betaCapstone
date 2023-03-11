@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { FieldService } from 'src/app/marketing/field.service';
+import { SignInService } from './sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,6 +8,7 @@ import { FieldService } from 'src/app/marketing/field.service';
   styles: [
     '@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");',
   ],
+  providers: [SignInService],
 })
 export class SignInComponent implements AfterViewInit {
   inputs!: NodeListOf<HTMLInputElement>;
@@ -14,7 +16,13 @@ export class SignInComponent implements AfterViewInit {
   passwordFields!: NodeListOf<HTMLInputElement>;
   visibilityIcons!: NodeListOf<HTMLElement>;
 
-  constructor(private fieldService: FieldService) {}
+  passwordField!: HTMLInputElement;
+  emailField!: HTMLInputElement;
+
+  constructor(
+    private fieldService: FieldService,
+    private signInService: SignInService
+  ) {}
 
   ngAfterViewInit(): void {
     this.inputs = document.querySelectorAll('.field input');
@@ -27,5 +35,12 @@ export class SignInComponent implements AfterViewInit {
       this.visibilityIcons,
       this.passwordFields
     );
+
+    this.passwordField = document.querySelector('input[name=password')!;
+    this.emailField = document.querySelector('input[name=email')!;
+  }
+
+  signIn() {
+    this.signInService.signIn(this.emailField.value, this.passwordField.value);
   }
 }
