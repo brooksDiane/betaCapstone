@@ -6,33 +6,33 @@
 
             <div class="field mobile">
                 <label class="inactive" for="firstname">First name</label>
-                <input class="" autocomplete="disabled" type="text" name="firstname" id="firstname" maxlength="40" tabindex="1">
+                <input class="" [(ngModel)]="firstname" autocomplete="disabled" type="text" name="firstname" id="firstname" maxlength="40" tabindex="1">
             </div>
 
             <div class="field mobile">
                 <label class="inactive" for="lastname">Last name</label>
-                <input class="" autocomplete="disabled" type="text" name="lastname" id="lastname" maxlength="40" tabindex="2">
+                <input class="" [(ngModel)]="lastname" autocomplete="disabled" type="text" name="lastname" id="lastname" maxlength="40" tabindex="2">
             </div>
 
             <div class="name desktop">
                 <div class="field">
                     <label class="inactive" for="firstname">First name</label>
-                    <input class="" autocomplete="disabled" type="text" name="firstname" id="firstname" maxlength="40" tabindex="1">
+                    <input class="" [(ngModel)]="firstname" autocomplete="disabled" type="text" name="firstname" id="firstname" maxlength="40" tabindex="1">
                 </div>
 
                 <div class="field">
                     <label class="inactive" for="lastname">Last name</label>
-                    <input class="" autocomplete="disabled" type="text" name="lastname" id="lastname" maxlength="40" tabindex="2">
+                    <input class="" [(ngModel)]="lastname" autocomplete="disabled" type="text" name="lastname" id="lastname" maxlength="40" tabindex="2">
                 </div>
             </div>
 
             <div class="field">
                 <label class="inactive" for="email">Email</label>
-                <input class="" autocomplete="disabled" type="text" name="email" id="email" maxlength="190" tabindex="3">
+                <input class="" [(ngModel)]="email" autocomplete="disabled" type="text" name="email" id="email" maxlength="190" tabindex="3">
             </div>
             <div class="field">
                 <label class="inactive" for="prime-password">Password</label>
-                <input class="" autocomplete="new-password" type="password" name="prime-password" id="prime-password" tabindex="4">
+                <input class="" [(ngModel)]="password" autocomplete="new-password" type="password" name="prime-password" id="prime-password" tabindex="4">
                 <i class="fa fa-eye"></i>
                 <div class="password-strength-bar">
                     <div></div>
@@ -62,7 +62,7 @@
                 </div>
             </div>
 
-            <button class=signup tabindex="8">Create Account</button>
+            <button class=signup tabindex="8" (click)="signUp()">Create Account</button>
 
         </div>
         <div class="alternative-sign-dialog">
@@ -83,5 +83,3 @@
     </div>
 
 </div>
-
-<div class="to-fix-the-scroll-bug"></div>

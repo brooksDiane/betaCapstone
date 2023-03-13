@@ -16,8 +16,8 @@ export class SignInComponent implements AfterViewInit {
   passwordFields!: NodeListOf<HTMLInputElement>;
   visibilityIcons!: NodeListOf<HTMLElement>;
 
-  passwordField!: HTMLInputElement;
-  emailField!: HTMLInputElement;
+  password: string = '';
+  email: string = '';
 
   constructor(
     private fieldService: FieldService,
@@ -35,12 +35,10 @@ export class SignInComponent implements AfterViewInit {
       this.visibilityIcons,
       this.passwordFields
     );
-
-    this.passwordField = document.querySelector('input[name=password')!;
-    this.emailField = document.querySelector('input[name=email')!;
   }
 
   signIn() {
-    this.signInService.signIn(this.emailField.value, this.passwordField.value);
+    console.log({ em: this.email, p: this.password });
+    this.signInService.signIn(this.email, this.password);
   }
 }

@@ -4,12 +4,12 @@
 
         <div class="field">
             <label class="inactive" for="email">Email</label>
-            <input class="" autocomplete="disabled" type="text" name="email" id="email" maxlength="190" tabindex="1">
+            <input class="" [(ngModel)]="email" autocomplete="disabled" type="text" name="email" id="email" maxlength="190" tabindex="1">
         </div>
 
         <div class="field">
             <label class="inactive" for="password">Password</label>
-            <input class="" autocomplete="new-password" type="password" name="password" id="password" tabindex="2">
+            <input class="" [(ngModel)]="password" autocomplete="new-password" type="password" name="password" id="password" tabindex="2">
             <i class="fa fa-eye"></i>
             <a class="forgot-password" href="#">Forgot Password?</a>
         </div>
@@ -21,13 +21,10 @@
             </label>
         </div>
 
-        <button class=signin tabindex="4" type="button" (click)="signIn()">Sign-in</button>
+        <button class=signin tabindex="4" (click)="signIn()">Sign-in</button>
 
     </div>
     <div class="alternative-sign-dialog">
         Don't have an account? <a routerLink="/sign-up">Create one now</a>
     </div>
 </form>
-
-
-<div class="to-fix-the-scroll-bug"></div>

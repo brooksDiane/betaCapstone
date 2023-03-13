@@ -2,6 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 
 import { FieldService } from 'src/app/marketing/field.service';
 import zxcvbn from 'zxcvbn'; // this one required from me turning "esModuleInterop": true in tsconfig.json, also install "@types/zxcvbn";
+import { SignUpService } from './sign-up.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,6 +10,7 @@ import zxcvbn from 'zxcvbn'; // this one required from me turning "esModuleInter
   styles: [
     '@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");',
   ],
+  providers: [SignUpService],
 })
 export class SignUpComponent implements AfterViewInit {
   inputs!: NodeListOf<HTMLInputElement>;
@@ -19,7 +21,15 @@ export class SignUpComponent implements AfterViewInit {
   passwordField!: HTMLInputElement;
   passwordStrengthBar!: NodeListOf<HTMLDivElement>;
 
-  constructor(private fieldService: FieldService) {}
+  firstname: string = '';
+  lastname: string = '';
+  email: string = '';
+  password: string = '';
+
+  constructor(
+    private fieldService: FieldService,
+    private signUpService: SignUpService
+  ) {}
 
   ngAfterViewInit(): void {
     this.addFieldEvents();
@@ -91,5 +101,14 @@ export class SignUpComponent implements AfterViewInit {
     this.passwordStrengthBar.forEach((el) => {
       el.className = '';
     });
+  }
+
+  signUp() {
+    this.signUpService.signUp(
+      this.email,
+      this.password,
+      this.firstname,
+      this.lastname
+    );
   }
 }

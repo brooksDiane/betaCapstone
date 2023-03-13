@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SignUpResponse } from 'src/types';
 import { environment } from 'src/environments/environment';
-
 import { AuthService } from 'src/app/auth.service';
-import { SignInResponse } from 'src/types';
 
 @Injectable()
-export class SignInService {
+export class SignUpService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  signIn(email: string, password: string) {
+  signUp(email: string, password: string, firstname: string, lastname: string) {
     this.http
-      .post<SignInResponse>(environment.apiURI + `sign-in`, {
+      .post<SignUpResponse>(environment.apiURI + 'sign-up', {
         email,
         password,
+        firstname,
+        lastname,
       })
-      .subscribe({
-        next: (data) => {
-          if (data.isSuccessful) this.onSuccess(data._id!);
-        },
+      .subscribe((data) => {
+        if (data.isSuccessful) this.onSuccess(data._id!);
       });
   }
 
