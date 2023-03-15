@@ -10,6 +10,7 @@ import { PricingComponent } from './pricing/pricing.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { ifNotSignedIn } from '../guards';
 
 const routes: Routes = [
   {
@@ -21,8 +22,16 @@ const routes: Routes = [
       { path: 'platforms', component: PlatformsComponent },
       { path: 'pricing', component: PricingComponent },
       { path: 'contact-us', component: ContactUsComponent },
-      { path: 'sign-in', component: SignInComponent },
-      { path: 'sign-up', component: SignUpComponent },
+      {
+        path: 'sign-in',
+        component: SignInComponent,
+        canActivate: [ifNotSignedIn],
+      },
+      {
+        path: 'sign-up',
+        component: SignUpComponent,
+        canActivate: [ifNotSignedIn],
+      },
     ],
   },
 ];

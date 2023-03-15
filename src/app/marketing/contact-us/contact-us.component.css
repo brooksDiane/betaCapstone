@@ -1,0 +1,143 @@
+@import url(../../../assets/styles/buttons.css);
+@import url(../../../assets/styles/forms.css);
+
+.parent-wrapper > div {
+  margin: 3rem 0;
+}
+
+@media (min-width: 600px) {
+  .parent-wrapper > div {
+    margin: 5rem 0;
+  }
+}
+
+.message.field {
+  position: static;
+  display: flex;
+  flex-direction: column;
+}
+
+.message label {
+  position: static;
+}
+
+.message textarea {
+  margin: 0.8rem 4px 4px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  height: 6rem;
+}
+
+.message textarea:focus {
+  outline: 1px var(--accent) solid;
+}
+
+.submit {
+  margin: 0;
+}
+
+.other-options-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.options-panel article {
+  position: relative;
+  padding: 2rem;
+  padding-left: calc(2rem + 31px);
+  /* background-color: rgb(250, 250, 250); */
+  display: flex;
+  flex-direction: column;
+}
+
+.options-panel.desktop article {
+  border-radius: 20px;
+  background-color: rgb(250, 250, 250);
+}
+
+.options-panel h3 {
+  color: var(--accent);
+  font-size: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.options-panel p {
+  line-height: 1.5rem;
+  flex: 1 0 auto;
+}
+
+.options-panel a {
+  text-decoration: none;
+  display: block;
+  width: fit-content;
+  margin: 1.5rem 0 0 auto;
+  padding: 0.6rem 1.5rem;
+  color: white;
+  background-color: var(--accent);
+  border-radius: 7px;
+}
+
+.options-panel.mobile {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.options-panel.desktop {
+  display: none;
+  margin: 0 auto;
+  max-width: 800px;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 48%);
+}
+
+@media (min-width: 600px) {
+  .options-panel.mobile {
+    display: none;
+  }
+
+  .options-panel.desktop {
+    display: grid;
+  }
+}
+
+h3::before {
+  background-size: 80px;
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  margin-left: -34px;
+  margin-right: 6px;
+  height: 28px;
+  width: 28px;
+}
+
+h3.support::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -87px;
+}
+
+h3.copyright::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -119px;
+}
+
+h3.privacy::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -183px;
+}
+
+h3.security::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -247px;
+}
+
+h3.bug::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -215px;
+}
+
+h3.idea::before {
+  background-image: url("../../../assets/images/contact-us-sprite.png");
+  background-position: -4px -279px;
+}

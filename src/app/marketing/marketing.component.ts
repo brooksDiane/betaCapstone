@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 
 import { setTimer } from 'src/utils';
@@ -8,7 +8,7 @@ import { setTimer } from 'src/utils';
   templateUrl: './marketing.component.html',
   styleUrls: ['./marketing.component.css'],
 })
-export class MarketingComponent implements OnInit {
+export class MarketingComponent implements OnInit, AfterViewInit {
   @ViewChild(HeaderComponent)
   private headerComponent!: HeaderComponent;
 
@@ -16,6 +16,15 @@ export class MarketingComponent implements OnInit {
 
   ngOnInit() {
     this.scrollCheck();
+  }
+
+  ngAfterViewInit(): void {
+    const html = document.querySelector('html')!.style;
+    html.background = 'url(../../assets/images/white_pattern.png), #f8f8f8';
+    html.color = 'var(--accent-dark)';
+    html.fontFamily = 'Source Sans Pro, sans-serif';
+
+    // document.querySelector('html')!.style.backgroundColor = 'black';
   }
 
   scrollToTop(): void {

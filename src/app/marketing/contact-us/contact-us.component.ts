@@ -4,7 +4,7 @@ import { FieldService } from 'src/app/marketing/field.service';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styles: [],
+  styleUrls: ['./contact-us.component.css'],
 })
 export class ContactUsComponent implements AfterViewInit {
   inputs!: NodeListOf<HTMLInputElement>;

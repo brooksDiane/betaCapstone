@@ -3,14 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
-  styles: [
-  ]
+  styleUrls: ['./pricing.component.css'],
 })
 export class PricingComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -17,13 +17,8 @@ export class SignInService {
       })
       .subscribe({
         next: (data) => {
-          if (data.isSuccessful) this.onSuccess(data._id!);
+          if (data.isSuccessful) this.authService.onSuccess(data._id!);
         },
       });
-  }
-
-  onSuccess(_id: string) {
-    this.authService._id = _id;
-    this.authService.setSignedInState(true);
   }
 }

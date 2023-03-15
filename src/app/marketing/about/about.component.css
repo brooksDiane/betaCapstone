@@ -1,0 +1,136 @@
+
+.background-image {
+    min-height: 400px;
+    padding: 0 2rem;
+    background: #0000007e url(../../../assets/images/narrow-collage.jpg);
+    background-blend-mode: darken;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+  }
+  
+  .background-image * {
+    text-align: center;
+    color: white;
+  }
+  
+  .background-image h2 {
+    font-size: 2rem;
+  }
+  
+  .background-image p {
+    font-size: 1.2rem;
+  }
+  
+  .big-infographics {
+    display: flex;
+    flex-flow: row wrap;
+    row-gap: 3rem;
+    justify-content: space-between;
+    background-color: #9b359b;
+    padding: 3rem 2rem;
+    /* Just to make it work with Main, sorry for bad code */
+    margin-bottom: 2rem;
+  }
+  
+  .big-infographics .data {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    width: 180px;
+  }
+  
+  .big-infographics .number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+  }
+  
+  @media (min-width: 600px) {
+    .background-image {
+      min-height: 550px;
+      background-image: url(../../../assets/images/broad-collage.jpg);
+      padding: 3rem 2rem;
+    }
+  
+    .background-image h2 {
+      font-size: 2.8rem;
+    }
+  
+    .background-image p {
+      font-size: 1.8rem;
+    }
+  
+    .big-infographics {
+      padding: 5rem 8rem;
+      margin-bottom: 0;
+    }
+  
+    .big-infographics .data {
+      font-size: 1.5rem;
+    }
+  
+    .big-infographics .number {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .story {
+    max-width: 800px;
+    font-size: 20px;
+    margin: 0 1rem;
+    list-style: decimal inside;
+    text-align: justify;
+  }
+  
+  .story li + li {
+    margin-top: 2rem;
+  }
+  
+  .team {
+    margin-top: 7rem;
+  }
+  
+  .team .container {
+    padding: 0 1rem;
+    display: grid;
+    gap: 1.5rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+  
+  .person {
+    margin: auto;
+  }
+  
+  .person img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .person .name {
+    font-weight: bold;
+  }
+  
+  .person p {
+    padding-left: 10px;
+  }
+  
+  @media (min-width: 600px) {
+    .story {
+      max-width: 800px;
+      font-size: 26px;
+      padding-left: 2rem;
+      margin: auto;
+    }
+  
+    .team .container {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: none;
+      gap: 3rem;
+      padding: 0 4rem;
+    }
+  }
+  

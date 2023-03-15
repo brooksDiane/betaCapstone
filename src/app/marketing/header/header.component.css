@@ -1,0 +1,194 @@
+@import url(../../../assets/styles/buttons.css);
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.023);
+  z-index: 1;
+}
+
+/* want for header to shrink when scrolled */
+
+header.full {
+  transition: padding 0.6s ease-in;
+  padding: 1rem;
+}
+
+header.shrinked {
+  transition: padding 1s ease-in;
+  padding: 0.3rem;
+}
+
+.logo {
+  object-fit: cover;
+  padding-top: 4px;
+}
+
+.logo.full {
+  /* just using pixels for the sample logo, not sure why max */
+  max-width: 140px;
+  transition: max-width 0.6s;
+}
+.logo.shrinked {
+  max-width: 125px;
+  transition: max-width 1s;
+}
+
+nav {
+  width: 100vw;
+  background-color: hsl(0, 0%, 98%);
+  position: absolute;
+  right: 0;
+  z-index: 0;
+}
+
+nav.active {
+  top: var(--active-nav-top);
+  transition: top 0.5s ease-in;
+}
+
+nav.inactive {
+  top: -210px;
+  transition: top 0.5s ease-out;
+}
+
+@media (min-width: 600px) {
+  header.full {
+    padding: 1rem 6rem 1rem 5rem;
+  }
+
+  header.shrinked {
+    padding: 0.8rem 4.8rem 0.8rem 4rem;
+  }
+
+  .logo.full {
+    /* just using pixels for the sample logo, not sure why max */
+    max-width: 175px;
+  }
+  .logo.shrinked {
+    max-width: 140px;
+  }
+
+  nav {
+    width: auto;
+    height: auto;
+    background-color: inherit;
+    position: static;
+    display: block;
+    flex: 1 0 auto;
+  }
+}
+
+menu {
+  font-size: 20px;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+}
+
+menu li {
+  width: calc(100vw - 2rem);
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.3rem 0;
+  background-color: hsl(0, 0%, 91%);
+  border-radius: 9px;
+  box-shadow: inset 0 0 2px 2px hsl(0, 0%, 94%), 0 0 2px 2px hsl(0, 0%, 95%);
+}
+
+menu li a {
+  text-decoration: none;
+}
+
+.placeholder {
+  /* purpose is to simulate the work of nav in putting everything in its place when the nav is out of normal flow.*/
+  flex: 1 0 auto;
+}
+
+header > a.desktop {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  menu {
+    flex-direction: row;
+    justify-content: start;
+    padding: 0;
+    gap: 2rem;
+    margin-right: 1.5rem;
+    margin-left: 3rem;
+  }
+
+  menu li {
+    width: auto;
+    padding: 0;
+    background-color: inherit;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  header a.signup.desktop {
+    display: block;
+  }
+
+  a.signup.mobile {
+    display: none;
+  }
+}
+
+.buttons {
+  width: 45px;
+}
+
+.menu-arrow {
+  display: none;
+  width: 35px;
+  height: 35px;
+  transform: rotate(45deg);
+  margin-left: 0.5rem;
+}
+
+.menu-arrow div {
+  position: relative;
+  background-color: rgb(19, 19, 19);
+  top: 9.5px;
+  left: 9.5px;
+}
+
+.side1 {
+  width: 25px;
+  height: 5px;
+}
+
+.side2 {
+  width: 5px;
+  height: 20px;
+}
+
+.menu-btn {
+  height: 40px;
+  width: 40px;
+  margin-left: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+
+.menu-btn div {
+  height: 5px;
+  width: 30px;
+  background-color: black;
+}
+
+@media (min-width: 600px) {
+  .buttons {
+    display: none;
+  }
+}

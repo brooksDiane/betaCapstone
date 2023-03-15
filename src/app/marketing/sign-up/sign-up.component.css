@@ -1,0 +1,33 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");
+@import url(../../../assets/styles/buttons.css);
+@import url(../../../assets/styles/forms.css);
+
+.password-strength-bar {
+  display: flex;
+  width: calc(100% - 4px);
+  gap: 2px;
+  margin: 2px;
+}
+
+.password-strength-bar div {
+  height: 4px;
+  flex-grow: 1;
+  background-color: rgb(199, 199, 199);
+  border-radius: 5px;
+}
+
+.password-strength-bar div.red {
+  background-color: rgb(231, 68, 68);
+}
+.password-strength-bar div.yellow {
+  background-color: rgb(226, 223, 19);
+}
+.password-strength-bar div.orange {
+  background-color: orange;
+}
+.password-strength-bar div.green {
+  background-color: rgb(78, 201, 29);
+}
+.password-strength-bar div.blue {
+  background-color: rgb(92, 190, 255);
+}

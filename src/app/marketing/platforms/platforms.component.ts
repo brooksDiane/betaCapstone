@@ -3,14 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-platforms',
   templateUrl: './platforms.component.html',
-  styles: [
-  ]
+  styleUrls: ['./platforms.component.css'],
 })
 export class PlatformsComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -7,9 +7,7 @@ import { SignUpService } from './sign-up.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styles: [
-    '@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css");',
-  ],
+  styleUrls: ['./sign-up.component.css'],
   providers: [SignUpService],
 })
 export class SignUpComponent implements AfterViewInit {

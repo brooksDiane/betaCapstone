@@ -1,0 +1,132 @@
+@import url(../../../assets/styles/buttons.css);
+
+.extensions,
+.mobile-apps {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+
+.web,
+.description {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  text-align: center;
+}
+
+.extensions .badges {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.extensions .badge {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 54px;
+  min-width: 165px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  text-decoration: none;
+}
+
+.extensions img {
+  display: inline-block;
+  height: 2.375rem;
+  width: 2.375rem;
+  object-fit: cover;
+}
+
+.extensions span {
+  display: block;
+}
+
+.extensions .shared {
+  font-size: 13px;
+}
+
+.extensions .unique {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mobile-apps .badges {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+a.badge.googleplay img {
+  width: 192px;
+}
+
+a.badge.appstore {
+  padding: 12px;
+}
+
+a.badge.appstore img {
+  border-radius: 13px;
+  width: 150px;
+}
+
+@media (min-width: 600px) {
+  .extensions,
+  .mobile-apps {
+    flex-flow: row nowrap;
+    padding: 0 5rem 0 6rem;
+    align-items: center;
+    gap: 5rem;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .badges {
+    margin: 0;
+  }
+
+  .extensions .badges {
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin: 0 auto;
+  }
+
+  .extensions .badge {
+    height: 72px;
+    width: 245px;
+    padding: 12px;
+  }
+
+  .extensions img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .extensions .shared {
+    font-size: 16px;
+  }
+
+  .extensions .unique {
+    font-size: 23px;
+  }
+
+  a.badge.googleplay img {
+    width: 252px;
+  }
+
+  a.badge.appstore {
+    padding: 16px;
+  }
+
+  a.badge.appstore img {
+    border-radius: 13px;
+    width: 200px;
+  }
+}

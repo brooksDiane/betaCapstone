@@ -1,0 +1,147 @@
+footer {
+  background-image: linear-gradient(
+    var(--accent-darker) 10px,
+    20px,
+    var(--accent-dark) 24px
+  );
+  padding: 3rem 2rem 2rem;
+  color: whitesmoke;
+}
+
+footer * {
+  text-decoration: none;
+}
+
+footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  footer {
+    padding: 7rem 5rem 4rem;
+  }
+
+  footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+.promo {
+  color: #2e2e2e;
+  background: linear-gradient(90deg, rgb(252, 240, 255), rgb(255, 214, 241));
+  width: 280px;
+  height: 300px;
+  padding: 2rem;
+  margin-bottom: calc((100% - 280px) / 2);
+  border-radius: 25px;
+}
+
+@media (min-width: 600px) {
+  .promo {
+    margin-bottom: 0;
+  }
+}
+
+.logo-section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-top: 30px;
+}
+
+.logo-section img {
+  height: 50px;
+  width: 195px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.logo-section .header {
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(19, 19, 19);
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+
+.logo-section .description {
+  text-align: center;
+}
+
+.links-section p {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.social-media {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-media a {
+  /*background-color: hsl(0, 0%, 91%);*/
+  /*box-shadow: 0 0 2px 2px hsl(0, 0%, 95%);*/
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.desktop.columns {
+  display: none;
+}
+
+.mobile.columns {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .desktop.columns {
+    display: flex;
+    justify-content: space-around;
+    flex: 1 0 auto; /* cus it's the child of the container */
+  }
+
+  .mobile.columns {
+    display: none;
+  }
+}
+
+.column {
+  margin: 4rem 0;
+}
+
+.column * {
+  display: block;
+}
+
+.column .heading {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.column a {
+  padding: 0.5rem 1rem;
+}
+
+@media (min-width: 600px) {
+  .column {
+    margin: 0;
+  }
+
+  .column a {
+    padding: 0.5rem 0;
+  }
+}
