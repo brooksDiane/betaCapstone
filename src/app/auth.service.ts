@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  constructor(private router: Router) {}
+
   /*
    an observable so guard can pipe it and redirect to signin page
    it is imported by signUp and signIn services, and changed in case of signup or signin
@@ -35,9 +38,17 @@ export class AuthService {
     this.isSignedIn = value;
   }
 
-  isSignedIn$(): Observable<boolean> {
-    return of(this.isSignedIn);
+  isSignedIn$(reverse: boolean = false): Observable<boolean> {
+    if (reverse) {
+      return of(!this.isSignedIn);
+    } else {
+      return of(this.isSignedIn);
+    }
   }
 
-  constructor() {}
+  onSuccess(_id: string) {
+    this._id = _id;
+    this.setSignedInState(true);
+    this.router.navigate(['lib/dashboard']);
+  }
 }
