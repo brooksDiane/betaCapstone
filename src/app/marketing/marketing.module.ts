@@ -17,8 +17,6 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FieldService } from './field.service';
 
-
-
 @NgModule({
   declarations: [
     MarketingComponent,
@@ -32,7 +30,7 @@ import { FieldService } from './field.service';
     SignInComponent,
     SignUpComponent,
   ],
-  imports: [CommonModule, FormsModule, MarketingRoutingModule],
+  imports: [CommonModule, MarketingRoutingModule, FormsModule],
   providers: [FieldService],
 })
 export class MarketingModule {}

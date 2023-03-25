@@ -1,0 +1,48 @@
+<figure class="video-container">
+
+    <video width="500" height="320" controls preload="metadata" (timeupdate)="updateProgress()">
+        <source [src]="source" [type]="mediatype">
+        It seems that your current browser does not support {{mediatype}} videos
+    </video>
+
+    <div class="controls">
+
+        <!-- <select id="playback-speed" (select)="changePlaybackSpeed()">
+        <option *ngFor="let speedOption of speedOptions" [value]="speedOption">
+            {{speedOption}}
+        </option>
+        </select> -->
+
+        <mat-progress-bar [mode]="mode" [value]="progressValue"></mat-progress-bar>
+
+
+        <button (click)="switchState()" mat-icon-button>
+            <mat-icon>{{videoStateIcon}}</mat-icon>
+        </button>
+        <button (click)="replay()" mat-icon-button>
+            <mat-icon svgIcon="replay"></mat-icon>
+        </button>
+        <button (click)="forward()" mat-icon-button>
+            <mat-icon svgIcon="forward"></mat-icon>
+        </button>
+
+
+        <button (click)="mute()" mat-icon-button>
+            <mat-icon>{{volumeIcon}}</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>speed</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let speedOption of speedOptions" [value]="speedOption" (click)="changePlaybackSpeed(speedOption)">
+                {{speedOption}}
+            </button>
+        </mat-menu>
+
+
+        <button (click)="fullscreen()" mat-icon-button>
+            <mat-icon>fullscreen</mat-icon>
+        </button>
+    </div>
+
+</figure>

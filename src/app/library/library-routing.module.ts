@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ifSignedIn } from '../guards';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LibraryComponent } from './library.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     canActivateChild: [ifSignedIn],
     children: [
       { path: 'dashboard', component: DashboardComponent },
+      { path: ':video', component: VideoPlayerComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
