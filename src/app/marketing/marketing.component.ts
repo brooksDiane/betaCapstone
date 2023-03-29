@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 
 import { setTimer } from 'src/utils';
@@ -8,7 +14,7 @@ import { setTimer } from 'src/utils';
   templateUrl: './marketing.component.html',
   styleUrls: ['./marketing.component.css'],
 })
-export class MarketingComponent implements OnInit, AfterViewInit {
+export class MarketingComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(HeaderComponent)
   private headerComponent!: HeaderComponent;
 
@@ -18,11 +24,21 @@ export class MarketingComponent implements OnInit, AfterViewInit {
     this.scrollCheck();
   }
 
+  ngOnDestroy(): void {
+    const html = document.querySelector('html')!.style;
+    const body = document.querySelector('body')!.style;
+    html.height = '100%';
+    body.height = '100%';
+  }
+
   ngAfterViewInit(): void {
     const html = document.querySelector('html')!.style;
+    const body = document.querySelector('body')!.style;
     html.background = 'url(../../assets/images/white_pattern.png), #f8f8f8';
     html.color = 'var(--accent-dark)';
     html.fontFamily = 'Source Sans Pro, sans-serif';
+    html.height = 'unset';
+    body.height = 'unset';
 
     // document.querySelector('html')!.style.backgroundColor = 'black';
   }

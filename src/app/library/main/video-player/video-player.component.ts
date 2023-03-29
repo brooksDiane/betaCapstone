@@ -41,10 +41,10 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
 
   video!: HTMLVideoElement;
   videoContainer!: HTMLElement;
+  controls!: HTMLDivElement;
   videoStateIcon = 'play_arrow';
   volumeIcon = 'volume_up';
   videoDuration: number = 0;
-  playbackSpeedSelect!: HTMLSelectElement;
 
   @Input() source!: string;
   @Input() mediatype!: string;
@@ -55,12 +55,9 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
     this.video = document.querySelector('video')!;
     this.videoDuration = this.video.duration;
     this.cd.detectChanges(); //to avoid error
+    this.controls = document.querySelector('.controls')!;
     this.videoContainer = document.querySelector('.video-container')!;
     this.video.controls = false; // fallback for js blocked browsers I guess
-    this.playbackSpeedSelect = document.querySelector('#playback-speed')!;
-    document //sets 1 as the default speed
-      .querySelector('option[value="1"]')
-      ?.setAttribute('selected', 'true');
   }
 
   speedOptions = [0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3];
@@ -128,6 +125,14 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
 
   setFullscreenData(state: boolean) {
     this.videoContainer.setAttribute('data-fullscreen', String(state));
+  }
+
+  showControls() {
+    this.controls.style.display = 'block';
+  }
+
+  hideControls() {
+    this.controls.style.display = 'none';
   }
 
   speed: 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2 | 2.5 | 3 = 1;
