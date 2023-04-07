@@ -5,3 +5,11 @@ export interface SignInResponse {
 }
 
 export interface SignUpResponse extends SignInResponse {}
+
+export type TitleType = 'series' | 'movie';
+
+export interface AsideTitleListItem {
+  id: string;
+  title: string;
+  type?: TitleType;
+}

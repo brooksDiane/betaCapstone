@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
 import { MainComponent } from './main/main.component';
 import { TitleService } from './title.service';
+import { TitleComponent } from './main/title/title.component';
+import { FileUploaderComponent } from './main/file-uploader/file-uploader.component';
 
 const Materials = [
   MatProgressBarModule,
@@ -37,6 +39,8 @@ const Materials = [
     HeaderComponent,
     AsideComponent,
     MainComponent,
+    TitleComponent,
+    FileUploaderComponent,
   ],
   imports: [CommonModule, FormsModule, LibraryRoutingModule, ...Materials],
   providers: [TitleService],

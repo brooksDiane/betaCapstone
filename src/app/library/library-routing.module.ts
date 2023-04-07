@@ -4,6 +4,7 @@ import { ifSignedIn } from '../guards';
 import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { LibraryComponent } from './library.component';
 import { VideoPlayerComponent } from './main/video-player/video-player.component';
+import { TitleComponent } from './main/title/title.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,16 @@ const routes: Routes = [
     canActivateChild: [ifSignedIn],
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: ':video', component: VideoPlayerComponent },
+      {
+        path: 'series/:id',
+        component: TitleComponent,
+        data: { titleType: 'series' },
+      },
+      {
+        path: 'movie/:id',
+        component: TitleComponent,
+        data: { titleType: 'movies' },
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },

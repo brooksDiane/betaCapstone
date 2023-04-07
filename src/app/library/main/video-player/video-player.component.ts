@@ -47,7 +47,7 @@ export class VideoPlayerComponent implements OnInit, AfterViewInit {
   videoDuration: number = 0;
 
   @Input() source!: string;
-  @Input() mediatype!: string;
+  @Input() mimetype!: string;
 
   ngOnInit(): void {}
 

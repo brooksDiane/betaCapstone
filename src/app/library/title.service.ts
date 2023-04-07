@@ -2,27 +2,34 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
-import { tap } from 'rxjs';
+import { AsideTitleListItem } from 'src/types';
 
 @Injectable()
 export class TitleService {
   constructor(private authService: AuthService, private http: HttpClient) {}
 
-  getSeries() {
-    return this.http.get<string[]>(
+  getSeriesList() {
+    return this.http.get<AsideTitleListItem[]>(
       environment.apiURI + 'get-series/' + this.authService._id
     );
   }
 
-  getMovies() {
-    return this.http.get<string[]>(
+  getMoviesList() {
+    return this.http.get<AsideTitleListItem[]>(
       environment.apiURI + 'get-movies/' + this.authService._id
     );
   }
 
-  getTitles() {
-    return this.http.get<{ series: string[]; movies: string[] }>(
-      environment.apiURI + 'get-titles/' + this.authService._id
+  getTitlesList() {
+    return this.http.get<{
+      series: AsideTitleListItem[];
+      movies: AsideTitleListItem[];
+    }>(environment.apiURI + 'get-titles/' + this.authService._id);
+  }
+
+  getMovie(titleId: string) {
+    return this.http.get<any>(
+      environment.apiURI + `movie/${this.authService._id}/${titleId}`
     );
   }
 
@@ -34,11 +41,14 @@ export class TitleService {
       .subscribe((data) => console.log(data));
   }
 
-  addMovie(title: string) {
+  addMovie(file: File, title: string) {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('title', title);
+    console.log(formData);
+
     this.http
-      .post(environment.apiURI + 'add-movie/' + this.authService._id, {
-        title,
-      })
+      .post(environment.apiURI + 'add-movie/' + this.authService._id, formData)
       .subscribe((data) => console.log(data));
   }
 }

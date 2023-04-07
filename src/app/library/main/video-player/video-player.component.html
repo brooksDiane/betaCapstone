@@ -1,8 +1,8 @@
 <figure class="video-container" (mouseover)="showControls()" (mouseleave)="hideControls()">
 
     <video controls preload="metadata" (timeupdate)="updateProgress()">
-        <source [src]="source" [type]="mediatype">
-        It seems that your current browser does not support {{mediatype}} videos
+        <source [src]="source" [type]="mimetype">
+        It seems that your current browser does not support {{mimetype}} videos
     </video>
 
     <div class="controls">

@@ -1,5 +1,5 @@
 <div class="body">
     <mat-checkbox class="example-margin" (change)="refreshTitleList()" [(ngModel)]="isSeriesChecked">Series</mat-checkbox>
     <mat-checkbox class="example-margin" (change)="refreshTitleList()" [(ngModel)]="isMoviesChecked">Movies</mat-checkbox>
-    <p *ngFor="let title of titleList"> {{title}} </p>
+    <p *ngFor="let title of titleList"> <a routerLink="{{title.type}}/{{title.id}}">{{title.title}}</a> </p>
 </div>

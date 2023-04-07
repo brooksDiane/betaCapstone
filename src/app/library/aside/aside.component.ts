@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from '../title.service';
+import { AsideTitleListItem, TitleType } from 'src/types';
 
 @Component({
   selector: 'app-aside',
@@ -7,7 +8,7 @@ import { TitleService } from '../title.service';
   styleUrls: ['./aside.component.css'],
 })
 export class AsideComponent implements OnInit {
-  titleList!: string[];
+  titleList!: AsideTitleListItem[];
   isSeriesChecked = false;
   isMoviesChecked = false;
 
@@ -28,31 +29,39 @@ export class AsideComponent implements OnInit {
   }
 
   getSeries() {
-    this.titleService.getSeries().subscribe((series) => {
+    this.titleService.getSeriesList().subscribe((series) => {
+      this.addTitleType(series, 'series');
       this.titleList = series;
       this.sort();
     });
   }
 
   getMovies() {
-    this.titleService.getMovies().subscribe((movies) => {
+    this.titleService.getMoviesList().subscribe((movies) => {
+      this.addTitleType(movies, 'movie');
       this.titleList = movies;
       this.sort();
     });
   }
 
   getTitles() {
-    this.titleService.getTitles().subscribe((titles) => {
+    this.titleService.getTitlesList().subscribe((titles) => {
+      this.addTitleType(titles.movies, 'movie');
+      this.addTitleType(titles.series, 'series');
       this.titleList = titles.series.concat(titles.movies);
       this.sort();
     });
   }
 
+  // *deep breath* I fucking hate myself for this code. Necessary for aside links to work
+  addTitleType(array: AsideTitleListItem[], titleType: TitleType) {
+    array.forEach((el) => (el.type = titleType));
+  }
+
   sort() {
-    console.log(this.titleList);
     this.titleList.sort((a, b) => {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
+      a.title = a.title.toLowerCase();
+      b.title = b.title.toLowerCase();
       if (a > b) {
         return 1;
       } else {
