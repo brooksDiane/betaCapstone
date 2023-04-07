@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TitleType } from 'src/types';
+import { Movie, TitleType } from 'src/types';
 import { TitleService } from '../../title.service';
+import { setTimer } from 'src/utils';
 
 @Component({
   selector: 'app-title',
@@ -11,40 +12,32 @@ import { TitleService } from '../../title.service';
 export class TitleComponent implements OnInit {
   id!: string;
   titleType!: TitleType;
-  title = {
-    // mimetype: 'video/mp4',
-    // url: 'https://res.cloudinary.com/solibra/video/upload/v1680697699/vsbncuaeqxumoudlxoby.mp4',
-    mimetype: '',
-    url: '',
-  };
+  title: Movie | null = null;
 
   constructor(
     private route: ActivatedRoute,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private ref: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.id = params['id'];
+      this.onUrlChange();
     });
 
     //this checks the type of media
     this.route.data.subscribe((url) => {
       this.titleType = url['titleType'];
     });
-
-    this.titleService
-      .getMovie(this.id)
-      .subscribe((data) => (this.title = data));
-
-    setTimeout(() => console.log(this.title), 3000);
   }
 
-  // ngAfterViewChecked(): void {
-  //   this.titleService
-  //     .getMovie(this.id)
-  //     .subscribe((data) => (this.title = data));
-
-  //   setTimeout(() => console.log(this.title), 3000);
-  // }
+  onUrlChange() {
+    this.titleService.getMovie(this.id).subscribe(async (data) => {
+      this.title = null; //to reinitialize the video player.
+      await setTimer(1); //apparently, it requires some time to pass to recognize data change and delete the element
+      this.title = data;
+      console.log(this.title);
+    });
+  }
 }

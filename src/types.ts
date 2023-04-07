@@ -13,3 +13,12 @@ export interface AsideTitleListItem {
   title: string;
   type?: TitleType;
 }
+
+export interface Movie {
+  _id: string;
+  title: string;
+  size: number;
+  format: string;
+  url: string;
+  mimetype: string;
+}

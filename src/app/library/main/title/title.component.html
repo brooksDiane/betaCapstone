@@ -2,5 +2,6 @@ id: {{id}}
 
 {{titleType}}
 
-<!-- <app-video-player source="https://res.cloudinary.com/solibra/video/upload/v1680696444/wjgzsdqxbi9c8ivej6bf.mp4" mimetype="video/mp4"></app-video-player> -->
-<app-video-player [source]="title.url" [mimetype]="title.mimetype"></app-video-player>
+<div *ngIf="title && title.url && title.mimetype">
+    <app-video-player [source]="title.url" [mimetype]="title.mimetype"></app-video-player>
+</div>
