@@ -1,0 +1,3 @@
+<mat-select (selectionChange)="onChange()" [(ngModel)]="genres" multiple>
+    <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
+</mat-select>

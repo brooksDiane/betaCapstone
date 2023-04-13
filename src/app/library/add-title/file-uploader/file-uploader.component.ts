@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { TitleService } from '../../title.service';
+import { AddTitleService } from '../add-title.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -11,17 +11,17 @@ export class FileUploaderComponent implements OnInit, AfterViewInit {
   file!: File;
   title!: string;
 
-  constructor(private titleService: TitleService) {}
+  constructor(private addTitle: AddTitleService) {}
 
   ngAfterViewInit(): void {
-    this.fileElement = document.querySelector('[type=file]')!;
+    this.fileElement = document.querySelector('#file-field')!;
   }
 
-  uploadMovie() {
+  confirm() {
     if (this.fileElement.files instanceof FileList) {
       this.file = this.fileElement.files[0];
+      this.addTitle.file = this.file;
       console.log(this.file);
-      this.titleService.addMovie(this.file, this.title);
     } else {
       console.error(
         'There are no files selected | There is some other error here'

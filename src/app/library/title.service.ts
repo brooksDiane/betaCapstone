@@ -40,15 +40,4 @@ export class TitleService {
       })
       .subscribe((data) => console.log(data));
   }
-
-  addMovie(file: File, title: string) {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('title', title);
-    console.log(formData);
-
-    this.http
-      .post(environment.apiURI + 'add-movie/' + this.authService._id, formData)
-      .subscribe((data) => console.log(data));
-  }
 }

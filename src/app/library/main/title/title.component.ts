@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Movie, TitleType } from 'src/types';
+import { serverMovieData, TitleType } from 'src/types';
 import { TitleService } from '../../title.service';
 import { setTimer } from 'src/utils';
 
@@ -12,7 +12,7 @@ import { setTimer } from 'src/utils';
 export class TitleComponent implements OnInit {
   id!: string;
   titleType!: TitleType;
-  title: Movie | null = null;
+  title: serverMovieData | null = null;
 
   constructor(
     private route: ActivatedRoute,

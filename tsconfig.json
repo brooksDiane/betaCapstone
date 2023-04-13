@@ -17,7 +17,6 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true,
     "esModuleInterop": true,
     "target": "ES6",
     "module": "ES6",

@@ -14,11 +14,18 @@ export interface AsideTitleListItem {
   type?: TitleType;
 }
 
-export interface Movie {
+export interface serverMovieData {
   _id: string;
   title: string;
   size: number;
   format: string;
   url: string;
   mimetype: string;
+}
+
+export interface pendingMovieData {
+  cover: File | undefined;
+  title: string | undefined;
+  genres: string[] | undefined;
+  year: string | undefined;
 }

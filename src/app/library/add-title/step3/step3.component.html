@@ -1,0 +1,5 @@
+<p>Title: {{data.title}}</p>
+<p>Year: {{data.year}}</p>
+<p>Genres: <span *ngFor="let genre of data.genres">, {{genre}}</span>.</p>
+<p>Cover: {{data.cover?.name}}</p>
+<p>File: {{fileName}}</p>

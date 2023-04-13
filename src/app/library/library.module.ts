@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { AddTitleModule } from './add-title/add-title.module';
+
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatButtonModule } from '@angular/material/button';
@@ -19,7 +21,6 @@ import { AsideComponent } from './aside/aside.component';
 import { MainComponent } from './main/main.component';
 import { TitleService } from './title.service';
 import { TitleComponent } from './main/title/title.component';
-import { FileUploaderComponent } from './main/file-uploader/file-uploader.component';
 
 const Materials = [
   MatProgressBarModule,
@@ -40,9 +41,14 @@ const Materials = [
     AsideComponent,
     MainComponent,
     TitleComponent,
-    FileUploaderComponent,
   ],
-  imports: [CommonModule, FormsModule, LibraryRoutingModule, ...Materials],
+  imports: [
+    CommonModule,
+    FormsModule,
+    LibraryRoutingModule,
+    AddTitleModule,
+    ...Materials,
+  ],
   providers: [TitleService],
 })
 export class LibraryModule {}

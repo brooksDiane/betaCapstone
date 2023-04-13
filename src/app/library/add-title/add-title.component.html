@@ -1,0 +1,22 @@
+<p>add-title works!</p>
+
+<div class="progress"> {{step}}</div>
+
+<div *ngIf="step === 'data'">
+    <app-step1></app-step1>
+    <button (click)="step = 'file'">Next</button>
+</div>
+
+<div *ngIf="step === 'file'">
+    <app-step2></app-step2>
+    <button (click)="step = 'data'">Return</button>
+    <button (click)="step = 'summary'">Next</button>
+</div>
+
+<div *ngIf="step === 'summary'">
+    <app-step3></app-step3>
+    <button (click)="step = 'file'">Return</button>
+    <button (click)="addTitle()">Add title</button>
+</div>
+
+<button (click)="logTitle()">clog</button>

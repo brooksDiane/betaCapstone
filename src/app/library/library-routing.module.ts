@@ -5,6 +5,7 @@ import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { LibraryComponent } from './library.component';
 import { VideoPlayerComponent } from './main/video-player/video-player.component';
 import { TitleComponent } from './main/title/title.component';
+import { AddTitleComponent } from './add-title/add-title.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
         path: 'movie/:id',
         component: TitleComponent,
         data: { titleType: 'movies' },
+      },
+      {
+        path: 'add',
+        component: AddTitleComponent,
       },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
