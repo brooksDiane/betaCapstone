@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { environment } from 'src/environments/environment';
 import { pendingMovieData } from 'src/types';
+import { GetTitleService } from '../get-title.service';
 
 @Injectable()
 export class AddTitleService {
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private authService: AuthService, private getTitleService: GetTitleService) { }
 
   data: pendingMovieData = {
     title: undefined,
@@ -43,8 +44,10 @@ export class AddTitleService {
 
     this.http
       .put(environment.apiURI + 'add-cover/' + movieId, formData)
-      .subscribe((response) =>
+      .subscribe((response) => {
         console.log('Step10: Got the final response', response)
+        this.getTitleService.isTitleUpdated = true;
+      }
       );
   }
 }

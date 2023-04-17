@@ -1,0 +1,12 @@
+<div class="grid">
+    <app-collection-header></app-collection-header>
+    <app-aside></app-aside>
+    <section>
+        <div class="title" *ngFor="let movie of movieList">
+            <a routerLink="movie/{{movie.id}}">
+                <img src="{{movie.cover.url}}" alt="">
+                <p>{{movie.title}}</p>
+            </a>
+        </div>
+    </section>
+</div>

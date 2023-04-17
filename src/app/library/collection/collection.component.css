@@ -1,0 +1,38 @@
+.grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+  grid-template-areas:
+    "hd hd"
+    "as mn";
+}
+
+app-collection-header {
+  grid-area: hd;
+}
+
+app-aside {
+  grid-area: as;
+}
+
+section {
+  grid-area: mn;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  padding: 0.5rem;
+}
+
+.title {
+  --title-width: 14rem;
+  --title-height: calc(var(--title-width) * 1.5 + 2rem);
+  width: var(--title-width);
+  padding: 0.5rem;
+  height: var(--title-height);
+  border: black 2px solid;
+}
+
+img {
+  width: 100%;
+}

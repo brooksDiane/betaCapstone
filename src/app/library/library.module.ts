@@ -14,13 +14,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { LibraryComponent } from './library.component';
 import { LibraryRoutingModule } from './library-routing.module';
-import { DashboardComponent } from './main/dashboard/dashboard.component';
-import { VideoPlayerComponent } from './main/video-player/video-player.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 import { HeaderComponent } from './header/header.component';
-import { AsideComponent } from './aside/aside.component';
-import { MainComponent } from './main/main.component';
-import { TitleService } from './title.service';
-import { TitleComponent } from './main/title/title.component';
+import { GetTitleService } from './get-title.service';
+import { TitleComponent } from './title/title.component';
+import { CollectionModule } from './collection/collection.module';
 
 const Materials = [
   MatProgressBarModule,
@@ -35,11 +33,8 @@ const Materials = [
 @NgModule({
   declarations: [
     LibraryComponent,
-    DashboardComponent,
     VideoPlayerComponent,
     HeaderComponent,
-    AsideComponent,
-    MainComponent,
     TitleComponent,
   ],
   imports: [
@@ -47,8 +42,9 @@ const Materials = [
     FormsModule,
     LibraryRoutingModule,
     AddTitleModule,
+    CollectionModule,
     ...Materials,
   ],
-  providers: [TitleService],
+  providers: [GetTitleService],
 })
-export class LibraryModule {}
+export class LibraryModule { }

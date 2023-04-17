@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { serverMovieData, TitleType } from 'src/types';
-import { TitleService } from '../../title.service';
+import { GetTitleService } from '../get-title.service';
 import { setTimer } from 'src/utils';
 
 @Component({
@@ -16,9 +16,8 @@ export class TitleComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private titleService: TitleService,
-    private ref: ChangeDetectorRef
-  ) {}
+    private getTitleService: GetTitleService
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -33,7 +32,7 @@ export class TitleComponent implements OnInit {
   }
 
   onUrlChange() {
-    this.titleService.getMovie(this.id).subscribe(async (data) => {
+    this.getTitleService.getMovie(this.id).subscribe(async (data) => {
       this.title = null; //to reinitialize the video player.
       await setTimer(1); //apparently, it requires some time to pass to recognize data change and delete the element
       this.title = data;

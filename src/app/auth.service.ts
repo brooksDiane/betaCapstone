@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   /*
    an observable so guard can pipe it and redirect to signin page
@@ -49,6 +49,6 @@ export class AuthService {
   onSuccess(_id: string) {
     this._id = _id;
     this.setSignedInState(true);
-    this.router.navigate(['lib/dashboard']);
+    this.router.navigate(['lib']);
   }
 }

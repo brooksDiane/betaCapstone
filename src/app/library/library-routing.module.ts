@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ifSignedIn } from '../guards';
-import { DashboardComponent } from './main/dashboard/dashboard.component';
 import { LibraryComponent } from './library.component';
-import { VideoPlayerComponent } from './main/video-player/video-player.component';
-import { TitleComponent } from './main/title/title.component';
+import { TitleComponent } from './title/title.component';
 import { AddTitleComponent } from './add-title/add-title.component';
+import { CollectionComponent } from './collection/collection.component';
+
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     canActivate: [ifSignedIn],
     canActivateChild: [ifSignedIn],
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: CollectionComponent },
       {
         path: 'series/:id',
         component: TitleComponent,
@@ -29,7 +29,6 @@ const routes: Routes = [
         path: 'add',
         component: AddTitleComponent,
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 ];
@@ -38,4 +37,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class LibraryRoutingModule {}
+export class LibraryRoutingModule { }

@@ -4,14 +4,20 @@ export interface SignInResponse {
   _id: string | null;
 }
 
-export interface SignUpResponse extends SignInResponse {}
+export interface SignUpResponse extends SignInResponse { }
 
 export type TitleType = 'series' | 'movie';
 
-export interface AsideTitleListItem {
+export interface TitlePresentationItem {
   id: string;
   title: string;
-  type?: TitleType;
+  genres: string[] | string,
+  year: number | string,
+  size: number | string,
+  cover: {
+    mimetype: string;
+    url: string;
+  }
 }
 
 export interface serverMovieData {
