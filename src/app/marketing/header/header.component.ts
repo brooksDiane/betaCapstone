@@ -39,5 +39,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0 });
+  }
+
+  ngOnInit() { }
 }

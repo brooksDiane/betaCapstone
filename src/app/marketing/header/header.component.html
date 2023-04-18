@@ -1,21 +1,21 @@
 <header [class]="headerClass">
-    <a routerLink="">
+    <a routerLink="" (click)="scrollToTop()">
         <img [class]="logoClass" src="./assets/images/logo.png" alt="the company logotype">
     </a>
 
     <nav [class]="navBarClass">
         <menu>
             <li>
-                <a routerLink="/platforms">PLATFORMS</a>
+                <a routerLink="/platforms" (click)="scrollToTop()">PLATFORMS</a>
             </li>
             <li>
-                <a routerLink="/pricing">PRICING</a>
+                <a routerLink="/pricing" (click)="scrollToTop()">PRICING</a>
             </li>
             <li>
-                <a routerLink="/about">ABOUT</a>
+                <a routerLink="/about" (click)="scrollToTop()">ABOUT</a>
             </li>
             <li>
-                <a routerLink="/contact-us">CONTACT US</a>
+                <a routerLink="/contact-us" (click)="scrollToTop()">CONTACT US</a>
             </li>
         </menu>
     </nav>
