@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 import { TitlePresentationItem } from 'src/types';
 
 @Injectable()
-export class GetTitleService {
+export class GetTitleService implements OnInit {
   constructor(private authService: AuthService, private http: HttpClient) { }
 
   isFirstGet = true;
@@ -13,6 +13,15 @@ export class GetTitleService {
 
   movieList!: TitlePresentationItem[];
 
+
+  ngOnInit(): void {
+    this.authService.onSignOut$.subscribe((didSignOut) => {
+      if (didSignOut) {
+        this.movieList = [];
+        this.isFirstGet = true;
+      }
+    })
+  }
 
   getMovie(titleId: string) {
     return this.http.get<any>(

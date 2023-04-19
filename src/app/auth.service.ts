@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +34,8 @@ export class AuthService {
     return localStorage.getItem('_id')!;
   }
 
+  onSignOut$ = new Subject<boolean>();
+
   setSignedInState(value: boolean) {
     this.isSignedIn = value;
   }
@@ -55,6 +57,9 @@ export class AuthService {
   signOut() {
     this._id = '';
     this.isSignedIn = false;
-    this.router.navigate(['sign-in'])
+    of(true).subscribe(this.onSignOut$);
+    // this.router.navigate(['sign-in'])
   }
+
+
 }
