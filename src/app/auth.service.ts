@@ -50,7 +50,6 @@ export class AuthService {
     this._id = _id;
     this.setSignedInState(true);
     this.router.navigate(['lib']);
-    window.location.reload();
   }
 
   signOut() {

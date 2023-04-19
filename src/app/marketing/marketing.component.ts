@@ -27,6 +27,9 @@ export class MarketingComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     const html = document.querySelector('html')!.style;
     const body = document.querySelector('body')!.style;
+    html.background = '';
+    html.color = '';
+    html.fontFamily = '';
     html.height = '100%';
     body.height = '100%';
   }
