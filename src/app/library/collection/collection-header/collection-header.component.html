@@ -1,6 +1,15 @@
 <div class="body">
-    titles: 10/10;
-    library size: 99gb;
-    <a routerLink="add">yay</a>
-    <button (click)="signOut()">Sign out</button>
+    <div class="infographics">
+        <span class="count">
+            Titles: {{titleCount}}
+        </span>
+        <span class="size">
+            Storage: {{size}}/20 GB
+        </span>
+    </div>
+
+    <a routerLink="add">
+        <span>Add Title</span>
+        <mat-icon>add_circle</mat-icon>
+    </a>
 </div>

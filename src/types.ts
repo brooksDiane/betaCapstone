@@ -16,17 +16,29 @@ export interface UserData {
 
 export type TitleType = 'series' | 'movie';
 
-export interface TitlePresentationItem {
+export interface TitleItemRaw {
   id: string;
   title: string;
-  genres: string[] | string,
-  year: number | string,
-  size: number | string,
+  genres: string,
+  year: string,
+  size: string,
   url: string;
   cover: {
     mimetype: string;
     url: string;
-    safeUrl: SafeResourceUrl;
+  }
+}
+
+export interface TitleItem {
+  id: string;
+  title: string;
+  genres: string[],
+  year: number,
+  size: number,
+  url: string;
+  cover: {
+    mimetype: string;
+    url: string;
   }
 }
 

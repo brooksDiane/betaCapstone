@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { GetTitleService } from '../get-title.service';
-import { TitlePresentationItem } from 'src/types';
+import { TitleItem } from 'src/types';
 import { environment } from 'src/environments/environment';
 
 
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class CollectionComponent implements OnInit {
   constructor(private getTitleService: GetTitleService) { }
 
-  movieList!: TitlePresentationItem[];
+  movieList!: TitleItem[];
   apiURI = environment.apiURI;
 
   ngOnInit(): void {

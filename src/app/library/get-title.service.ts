@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
-import { TitlePresentationItem } from 'src/types';
+import { TitleItem, TitleItemRaw } from 'src/types';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class GetTitleService implements OnInit {
@@ -11,7 +12,8 @@ export class GetTitleService implements OnInit {
   isFirstGet = true;
   isTitleUpdated: boolean = false;
 
-  movieList!: TitlePresentationItem[];
+  getMovies$!: Observable<TitleItemRaw[]>;
+  movieList!: TitleItem[];
 
 
   ngOnInit(): void {
@@ -29,10 +31,11 @@ export class GetTitleService implements OnInit {
     );
   }
 
-  loadMovies(resolve: CallableFunction) {
-    this.http.get<TitlePresentationItem[]>(
+  private loadMovies(resolve: CallableFunction) {
+    this.getMovies$ = this.http.get<TitleItemRaw[]>(
       environment.apiURI + 'get-movies/' + this.authService._id
-    ).subscribe(movies => {
+    );
+    this.getMovies$.subscribe(movies => {
       this.movieList = this.parseMovies(movies);
       this.isFirstGet = false;
       this.isTitleUpdated = false;
@@ -51,15 +54,19 @@ export class GetTitleService implements OnInit {
     return this.movieList;
   }
 
-  parseMovies(movies: TitlePresentationItem[]): TitlePresentationItem[] {
-    for (let movie of movies) {
-      if (typeof movie.genres !== 'object') {
-        movie.genres = JSON.parse(movie.genres);
-      }
-      movie.year = +movie.year;
-      movie.size = +movie.size;
+  parseMovies(moviesRaw: TitleItemRaw[]): TitleItem[] {
+    const moviesParsed: TitleItem[] = [];
+    for (let movie of moviesRaw) {
+      moviesParsed.push(this.parseMovie(movie));
     }
-    return movies;
+    return moviesParsed;
+  }
+
+  private parseMovie(movie: any) {
+    movie.year = +movie.year;
+    movie.size = +movie.size;
+    movie.genres = JSON.parse(movie.genres);
+    return movie;
   }
 
 

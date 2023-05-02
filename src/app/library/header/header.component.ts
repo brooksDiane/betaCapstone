@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   async showAcc() {
     this.isPopupOn = true;
-    await setTimer(10500);
+    await setTimer(2700);
     this.isPopupOn = false;
 
   }
