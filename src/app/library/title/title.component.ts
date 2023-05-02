@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { serverMovieData, TitleType } from 'src/types';
 import { GetTitleService } from '../get-title.service';
 import { setTimer } from 'src/utils';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-title',
@@ -13,6 +14,7 @@ export class TitleComponent implements OnInit {
   id!: string;
   titleType!: TitleType;
   title: serverMovieData | null = null;
+  apiURI = environment.apiURI;
 
   constructor(
     private route: ActivatedRoute,

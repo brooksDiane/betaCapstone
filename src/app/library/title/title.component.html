@@ -3,5 +3,5 @@ id: {{id}}
 {{titleType}}
 
 <div *ngIf="title && title.url && title.mimetype">
-    <app-video-player [source]="title.url" [mimetype]="title.mimetype"></app-video-player>
+    <app-video-player [source]="apiURI + title.url" [mimetype]="title.mimetype"></app-video-player>
 </div>
