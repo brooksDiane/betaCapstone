@@ -1,5 +1,40 @@
 .body {
-  height: 50px;
+  height: 60px;
   width: 100%;
   background-color: purple;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0.5rem 0 0.2rem;
+}
+
+.logo {
+  height: 50px;
+  /* margin-top: px; */
+  object-fit: contain;
+}
+
+.buttons {
+  height: fit-content;
+}
+
+.buttons * mat-icon {
+  font-size: 2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.buttons button {
+  background-color: transparent;
+  border: none;
+}
+
+.buttons button mat-icon {
+  cursor: pointer;
+}
+
+app-profile-popup {
+  position: absolute;
+  top: 60px;
+  right: 1px;
 }

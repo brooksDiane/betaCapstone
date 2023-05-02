@@ -1,12 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { UserData } from 'src/types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   /*
    an observable so guard can pipe it and redirect to signin page
@@ -35,6 +38,7 @@ export class AuthService {
   }
 
   onSignOut$ = new Subject<boolean>();
+  user: UserData | undefined
 
   setSignedInState(value: boolean) {
     this.isSignedIn = value;
@@ -52,13 +56,18 @@ export class AuthService {
     this._id = _id;
     this.setSignedInState(true);
     this.router.navigate(['lib']);
+    this.getUserData$().subscribe(data => { this.user = data });
+  }
+
+  getUserData$() {
+    return this.http.get<UserData>(`${environment.apiURI}user/${this._id}`);
   }
 
   signOut() {
     this._id = '';
     this.isSignedIn = false;
     of(true).subscribe(this.onSignOut$);
-    // this.router.navigate(['sign-in'])
+    this.router.navigate(['sign-in'])
   }
 
 

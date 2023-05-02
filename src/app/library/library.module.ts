@@ -19,6 +19,8 @@ import { HeaderComponent } from './header/header.component';
 import { GetTitleService } from './get-title.service';
 import { TitleComponent } from './title/title.component';
 import { CollectionModule } from './collection/collection.module';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfilePopupComponent } from './profile-popup/profile-popup.component';
 
 const Materials = [
   MatProgressBarModule,
@@ -36,6 +38,8 @@ const Materials = [
     VideoPlayerComponent,
     HeaderComponent,
     TitleComponent,
+    SettingsComponent,
+    ProfilePopupComponent,
   ],
   imports: [
     CommonModule,

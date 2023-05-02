@@ -1,3 +1,14 @@
 <div class="body">
-    <a routerLink="/lib">Home</a>
+    <a routerLink="/lib">
+        <img class="logo" src="./assets/images/logo_white.png" alt="">
+    </a>
+    <div class="buttons">
+        <a routerLink="settings">
+            <mat-icon>settings</mat-icon>
+        </a>
+        <button (click)="showAcc()">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </div>
 </div>
+<app-profile-popup *ngIf="isPopupOn"></app-profile-popup>

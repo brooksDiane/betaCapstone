@@ -5,6 +5,7 @@ import { LibraryComponent } from './library.component';
 import { TitleComponent } from './title/title.component';
 import { AddTitleComponent } from './add-title/add-title.component';
 import { CollectionComponent } from './collection/collection.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: 'add',
         component: AddTitleComponent,
       },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      }
     ],
   },
 ];

@@ -1,0 +1,48 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px 0;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  height: 64px;
+  width: 12rem;
+}
+
+.upper {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.135);
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+mat-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.name {
+  margin-left: 3px;
+  font-size: 1.2rem;
+}
+
+.email {
+  font-size: 1.1rem;
+  color: grey;
+}

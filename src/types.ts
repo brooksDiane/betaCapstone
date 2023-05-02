@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export interface SignInResponse {
   isSuccessful: boolean;
   errorMsg: string | null;
@@ -5,6 +7,12 @@ export interface SignInResponse {
 }
 
 export interface SignUpResponse extends SignInResponse { }
+
+export interface UserData {
+  firstname: string;
+  lastname: string;
+  email: string;
+}
 
 export type TitleType = 'series' | 'movie';
 
@@ -14,9 +22,11 @@ export interface TitlePresentationItem {
   genres: string[] | string,
   year: number | string,
   size: number | string,
+  url: string;
   cover: {
     mimetype: string;
     url: string;
+    safeUrl: SafeResourceUrl;
   }
 }
 
