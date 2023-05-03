@@ -2,11 +2,14 @@
     <app-collection-header></app-collection-header>
     <app-aside></app-aside>
     <section>
-        <div class="title" *ngFor="let movie of movieList">
-            <a routerLink="movie/{{movie.id}}">
-                <img [src]="apiURI + movie.cover.url" alt="">
-                <p>{{movie.title}}</p>
-            </a>
-        </div>
+        <a class="title" routerLink="movie/{{movie.id}}" *ngFor="let movie of movieList">
+            <img [src]="apiURI + movie.cover.url" alt="">
+            <p class="titlename">{{movie.title}}</p>
+            <p class="details">
+                <span class="year">{{movie.year}}</span>
+                •
+                <span class="size">{{movie.size | dataSize}}</span>
+            </p>
+        </a>
     </section>
 </div>
