@@ -24,7 +24,7 @@ section {
   display: grid;
   padding: 0.5rem;
   row-gap: 0.5rem;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .title {

@@ -7,7 +7,7 @@ import { AddTitleService } from '../add-title.service';
   styleUrls: ['./step1.component.css'],
 })
 export class Step1Component implements OnInit {
-  constructor(private addTitle: AddTitleService) {}
+  constructor(private addTitle: AddTitleService) { }
 
   private _title!: string;
   private _year!: string;
@@ -28,6 +28,6 @@ export class Step1Component implements OnInit {
     this.addTitle.data.year = this._year;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 }

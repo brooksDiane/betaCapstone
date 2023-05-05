@@ -1,2 +1,2 @@
-<input type="file">
-<button (click)="confirm()">upload</button>
+<button type="button" mat-raised-button [color]="buttonColor" (click)="fileInput.click()">{{buttonText}}</button>
+<input hidden (change)="selectFile()" #fileInput type="file" id="file">

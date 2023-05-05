@@ -8,15 +8,11 @@ import { AddTitleService } from './add-title.service';
 })
 export class AddTitleComponent implements OnInit {
   step: 'data' | 'file' | 'summary' = 'data';
-  constructor(private addTitleService: AddTitleService) {}
-
-  logTitle() {
-    console.log(this.addTitleService.data);
-  }
+  constructor(private addTitleService: AddTitleService) { }
 
   addTitle() {
     this.addTitleService.addMovie();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

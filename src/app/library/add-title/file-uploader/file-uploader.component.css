@@ -1,0 +1,10 @@
+button {
+  color: black;
+  height: 60px;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+mat-icon {
+  margin-right: 12px;
+}

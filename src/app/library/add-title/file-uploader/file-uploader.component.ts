@@ -10,18 +10,21 @@ export class FileUploaderComponent implements OnInit, AfterViewInit {
   fileElement!: HTMLInputElement;
   file!: File;
   title!: string;
+  buttonText = 'Select a Video';
+  buttonColor = 'warn';
 
-  constructor(private addTitle: AddTitleService) {}
+  constructor(private addTitle: AddTitleService) { }
 
   ngAfterViewInit(): void {
-    this.fileElement = document.querySelector('#file-field')!;
+    this.fileElement = document.querySelector('#file')!;
   }
 
-  confirm() {
+  selectFile() {
     if (this.fileElement.files instanceof FileList) {
       this.file = this.fileElement.files[0];
       this.addTitle.file = this.file;
-      console.log(this.file);
+      this.buttonText = 'Video is selected. Please Proceed';
+      this.buttonColor = 'accent';
     } else {
       console.error(
         'There are no files selected | There is some other error here'
@@ -29,5 +32,5 @@ export class FileUploaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

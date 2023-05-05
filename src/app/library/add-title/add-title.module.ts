@@ -13,8 +13,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { CoverUploaderComponent } from './cover-uploader/cover-uploader.component';
 import { AddTitleService } from './add-title.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
-const Materials = [MatSelectModule, MatInputModule];
+const Materials = [MatSelectModule, MatInputModule, MatButtonModule, MatIconModule];
 
 @NgModule({
   declarations: [
@@ -35,4 +37,4 @@ const Materials = [MatSelectModule, MatInputModule];
   exports: [AddTitleComponent],
   providers: [AddTitleService],
 })
-export class AddTitleModule {}
+export class AddTitleModule { }

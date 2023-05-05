@@ -1,7 +1,7 @@
 .body {
   height: 60px;
   width: 100%;
-  background-color: purple;
+  background-color: #800080;
   display: flex;
   justify-content: space-between;
   align-items: center;

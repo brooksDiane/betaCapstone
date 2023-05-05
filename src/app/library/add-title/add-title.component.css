@@ -4,4 +4,36 @@
   height: 20px;
 }
 
+button {
+  color: black;
+}
 
+.step {
+  width: 20rem;
+  height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2rem auto;
+}
+
+.buttons {
+  position: relative;
+  height: 36px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.buttons * {
+  width: 9.8rem;
+}
+
+.buttons .right {
+  position: absolute;
+  right: 0;
+}
+
+.buttons .left {
+  position: absolute;
+  left: 0;
+}

@@ -8,18 +8,22 @@ import { AddTitleService } from '../add-title.service';
 })
 export class CoverUploaderComponent implements OnInit, AfterViewInit {
   fileElement!: HTMLInputElement;
+  buttonText = 'Choose Cover';
+  buttonColor = '';
   cover!: File;
 
-  constructor(private addTitle: AddTitleService) {}
+  constructor(private addTitle: AddTitleService) { }
 
   ngAfterViewInit(): void {
     this.fileElement = document.querySelector('[type=file]')!;
   }
 
-  confirm() {
+  selectFile() {
     if (this.fileElement.files instanceof FileList) {
       this.cover = this.fileElement.files[0];
       this.addTitle.data.cover = this.cover;
+      this.buttonText = 'Cover Chosen';
+      this.buttonColor = 'accent';
     } else {
       console.error(
         'There are no files selected | There is some other error here'
@@ -27,5 +31,5 @@ export class CoverUploaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

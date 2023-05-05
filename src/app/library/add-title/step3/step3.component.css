@@ -1,0 +1,16 @@
+p {
+  display: flex;
+  margin-top: 1rem;
+}
+
+p > :first-child {
+  flex: 0 0 70px;
+  font-weight: bold;
+  text-align: right;
+}
+
+p > :nth-child(2) {
+  flex-grow: 1;
+  padding-left: 1rem;
+  color: rgb(223, 223, 223);
+}

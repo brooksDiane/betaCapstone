@@ -1,2 +1,7 @@
-<input type="file" id="file-field">
-<button (click)="confirm()">upload</button>
+<button mat-flat-button [color]="buttonColor" (click)="fileInput.click()">
+    <mat-icon>cloud_upload</mat-icon>
+    {{buttonText}}
+</button>
+
+
+<input hidden (change)="selectFile()" #fileInput type="file" id="file">
