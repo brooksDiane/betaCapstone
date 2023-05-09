@@ -21,6 +21,7 @@ import { TitleComponent } from './title/title.component';
 import { CollectionModule } from './collection/collection.module';
 import { SettingsComponent } from './settings/settings.component';
 import { ProfilePopupComponent } from './profile-popup/profile-popup.component';
+import { SharedModule } from '../shared/shared.module';
 
 const Materials = [
   MatProgressBarModule,
@@ -47,6 +48,7 @@ const Materials = [
     LibraryRoutingModule,
     AddTitleModule,
     CollectionModule,
+    SharedModule,
     ...Materials,
   ],
   providers: [GetTitleService],

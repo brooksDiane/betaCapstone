@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { serverMovieData, TitleType } from 'src/types';
+import { TitleItem, TitleType } from 'src/types';
 import { GetTitleService } from '../get-title.service';
 import { setTimer } from 'src/utils';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class TitleComponent implements OnInit {
   id!: string;
   titleType!: TitleType;
-  title: serverMovieData | null = null;
+  title: TitleItem | null = null;
   apiURI = environment.apiURI;
 
   constructor(
@@ -37,7 +37,7 @@ export class TitleComponent implements OnInit {
     this.getTitleService.getMovie(this.id).subscribe(async (data) => {
       this.title = null; //to reinitialize the video player.
       await setTimer(1); //apparently, it requires some time to pass to recognize data change and delete the element
-      this.title = data;
+      this.title = this.getTitleService.parseMovie(data);
       console.log(this.title);
     });
   }

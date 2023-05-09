@@ -22,6 +22,7 @@ export class CollectionComponent implements OnInit {
 
   async getMovies() {
     this.movieList = await this.getTitleService.getMovies()
+    console.log(this.movieList);
   }
 
 }

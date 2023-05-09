@@ -15,6 +15,7 @@ import { CoverUploaderComponent } from './cover-uploader/cover-uploader.componen
 import { AddTitleService } from './add-title.service';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 const Materials = [MatSelectModule, MatInputModule, MatButtonModule, MatIconModule];
 
@@ -31,7 +32,7 @@ const Materials = [MatSelectModule, MatInputModule, MatButtonModule, MatIconModu
   imports: [
     CommonModule,
     FormsModule,
-    /* AddTitleRoutingModule,*/
+    SharedModule,
     ...Materials,
   ],
   exports: [AddTitleComponent],

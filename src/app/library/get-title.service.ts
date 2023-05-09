@@ -26,7 +26,7 @@ export class GetTitleService implements OnInit {
   }
 
   getMovie(titleId: string) {
-    return this.http.get<any>(
+    return this.http.get<TitleItemRaw>(
       environment.apiURI + `movie/${this.authService._id}/${titleId}`
     );
   }
@@ -62,7 +62,10 @@ export class GetTitleService implements OnInit {
     return moviesParsed;
   }
 
-  private parseMovie(movie: any) {
+  /**
+   * intented for private use only, but you can use it...
+   */
+  parseMovie(movie: any) {
     movie.year = +movie.year;
     movie.size = +movie.size;
     movie.genres = JSON.parse(movie.genres);

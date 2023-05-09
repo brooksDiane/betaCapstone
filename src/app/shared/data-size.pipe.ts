@@ -4,7 +4,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dataSize'
 })
 export class DataSizePipe implements PipeTransform {
-
   transform(size: number): unknown {
     let sizeString = '';
     if (size > 500000000) {
@@ -14,5 +13,4 @@ export class DataSizePipe implements PipeTransform {
     }
     return sizeString;
   }
-
 }

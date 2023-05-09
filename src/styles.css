@@ -1,6 +1,8 @@
 @import "~normalize.css";
 @import "~reset.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
 /* || General Rules */
 
 html {

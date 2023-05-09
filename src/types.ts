@@ -23,6 +23,7 @@ export interface TitleItemRaw {
   year: string,
   size: string,
   url: string;
+  mimetype: string,
   cover: {
     mimetype: string;
     url: string;
@@ -36,20 +37,13 @@ export interface TitleItem {
   year: number,
   size: number,
   url: string;
+  mimetype: string;
   cover: {
     mimetype: string;
     url: string;
   }
 }
 
-export interface serverMovieData {
-  _id: string;
-  title: string;
-  size: number;
-  format: string;
-  url: string;
-  mimetype: string;
-}
 
 export interface pendingMovieData {
   cover: File | undefined;

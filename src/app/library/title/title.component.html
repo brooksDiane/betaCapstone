@@ -1,7 +1,16 @@
-id: {{id}}
+<div class="body">
+    <aside *ngIf="title">
+        <img [src]="apiURI + title.cover.url" alt="">
+        <div class="details">
+            <h1>{{title.title}}</h1>
+            <p><span>Year:</span> {{title.year}}</p>
+            <p><span>Genres:</span> {{title.genres | genres}}</p>
+            <p><span>Size:</span> {{title.size | dataSize}}</p>
+            <p><span>Mimetype:</span> {{title.mimetype}}</p>
+        </div>
+    </aside>
 
-{{titleType}}
-
-<div *ngIf="title && title.url && title.mimetype">
-    <app-video-player [source]="apiURI + title.url" [mimetype]="title.mimetype"></app-video-player>
+    <div class="player-section" *ngIf="title && title.url && title.mimetype">
+        <app-video-player [source]="apiURI + title.url" [mimetype]="title.mimetype"></app-video-player>
+    </div>
 </div>
