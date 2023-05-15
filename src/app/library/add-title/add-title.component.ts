@@ -12,6 +12,7 @@ export class AddTitleComponent implements OnInit {
 
   addTitle() {
     this.addTitleService.addMovie();
+    
   }
 
   ngOnInit(): void { }

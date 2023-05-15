@@ -51,3 +51,7 @@ export interface pendingMovieData {
   genres: string[] | undefined;
   year: string | undefined;
 }
+
+export type sortingCriterion = 'name' | 'size' | 'year';
+
+export type sortingOrder = 'ascending' | 'descending';

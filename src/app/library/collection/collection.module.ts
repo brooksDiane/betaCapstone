@@ -7,12 +7,24 @@ import { CollectionComponent } from './collection.component';
 import { CollectionHeaderComponent } from './collection-header/collection-header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { SortingService } from './sorting.service';
 
 
 const routes: Routes = [];
 
 const Materials = [
-  MatIconModule
+  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule,
+  MatInputModule,
+  MatCheckboxModule,
+  MatButtonModule
 ];
 
 @NgModule({
@@ -21,7 +33,8 @@ const Materials = [
     CollectionHeaderComponent,
     AsideComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, ...Materials],
-  exports: [RouterModule]
+  imports: [CommonModule, FormsModule, RouterModule.forChild(routes), SharedModule, ...Materials],
+  exports: [RouterModule],
+  providers: [SortingService]
 })
 export class CollectionModule { }

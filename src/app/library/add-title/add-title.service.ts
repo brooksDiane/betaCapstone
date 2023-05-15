@@ -4,10 +4,11 @@ import { AuthService } from 'src/app/auth.service';
 import { environment } from 'src/environments/environment';
 import { pendingMovieData } from 'src/types';
 import { GetTitleService } from '../get-title.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AddTitleService {
-  constructor(private http: HttpClient, private authService: AuthService, private getTitleService: GetTitleService) { }
+  constructor(private http: HttpClient, private authService: AuthService, private getTitleService: GetTitleService, private router: Router) { }
 
   data: pendingMovieData = {
     title: undefined,
@@ -47,6 +48,7 @@ export class AddTitleService {
       .subscribe((response) => {
         console.log('Step10: Got the final response', response)
         this.getTitleService.isTitleUpdated = true;
+        this.router.navigate(['lib'])
       }
       );
   }

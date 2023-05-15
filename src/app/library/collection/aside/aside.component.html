@@ -1,1 +1,31 @@
-<p>aside works!</p>
+<form>
+    <p>
+        Sort By
+        <mat-form-field appearance="outline">
+            <mat-label>Criterion</mat-label>
+            <mat-select id="criterion" name="criterion" [(value)]="criterion">
+                <mat-option value="name">Name</mat-option>
+                <mat-option value="size">Size</mat-option>
+                <mat-option value="year">Year</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </p>
+    <p>
+        In
+        <mat-form-field appearance="outline">
+            <mat-label>Order</mat-label>
+            <mat-select id=order name="order" [(value)]="order">
+                <mat-option value="ascending">Ascending</mat-option>
+                <mat-option value="descending">Descending</mat-option>
+            </mat-select>
+        </mat-form-field>
+        Order
+    </p>
+    <div class="filters">
+        <mat-checkbox color="accent" *ngFor="let genre of genreList" (change)="onFilterSelect(genre)" [value]="genre">{{genre}}</mat-checkbox>
+    </div>
+    <button mat-stroked-button (click)="sort()">
+        <mat-icon>search</mat-icon>
+        Search
+    </button>
+</form>
