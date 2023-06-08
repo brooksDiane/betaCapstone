@@ -7,7 +7,6 @@ import { MarketingRoutingModule } from './marketing-routing.module';
 import { MarketingComponent } from './marketing.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
 import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -33,4 +32,4 @@ import { FieldService } from './field.service';
   imports: [CommonModule, MarketingRoutingModule, FormsModule],
   providers: [FieldService],
 })
-export class MarketingModule {}
+export class MarketingModule { }

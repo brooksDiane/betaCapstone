@@ -17,7 +17,7 @@ const routes: Routes = [
     path: '',
     component: MarketingComponent,
     children: [
-      { path: '', component: MainPageComponent },
+      { path: '', redirectTo: 'about', pathMatch: 'full' },
       { path: 'about', component: AboutComponent },
       { path: 'platforms', component: PlatformsComponent },
       { path: 'pricing', component: PricingComponent },
@@ -40,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MarketingRoutingModule {}
+export class MarketingRoutingModule { }

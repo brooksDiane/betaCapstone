@@ -1,5 +1,3 @@
-import { SafeResourceUrl } from "@angular/platform-browser";
-
 export interface SignInResponse {
   isSuccessful: boolean;
   errorMsg: string | null;
